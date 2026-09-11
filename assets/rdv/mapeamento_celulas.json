@@ -1,0 +1,130 @@
+{
+  "_comentario": "Mapeamento das células do modelo RDV. Edite apenas os endereços (ex.: C5 → D5) e as linhas das categorias. Não renomeie as chaves dos campos. O arquivo Excel modelo fica nesta mesma pasta (arquivo_modelo).",
+  "arquivo_modelo": "RDV-PADRÃO.xlsx",
+  "aba_frente": "frente",
+  "aba_verso": "verso",
+
+  "cabecalho": {
+    "contratada": {
+      "celula": "C1",
+      "modo": "texto",
+      "descricao": "Nome da empresa contratada"
+    },
+    "inicio_contratual": {
+      "celula": "G2",
+      "modo": "data",
+      "formato": "DD/MM/YYYY",
+      "descricao": "Data de início do período"
+    },
+    "termino_contratual": {
+      "celula": "G3",
+      "modo": "data",
+      "formato": "DD/MM/YYYY",
+      "descricao": "Data de término do período"
+    },
+    "numero_rdv": {
+      "celula": "G4",
+      "modo": "rotulo",
+      "prefixo": "RDV-",
+      "descricao": "Número do RDV no formato RDV-12345"
+    },
+    "nome_funcionario": {
+      "celula": "C5",
+      "modo": "rotulo",
+      "prefixo": "Colaborador: ",
+      "descricao": "Nome do colaborador / viajante"
+    },
+    "contratante": {
+      "celula": "F5",
+      "modo": "rotulo",
+      "prefixo": "Cliente: ",
+      "descricao": "Cliente / contratante"
+    },
+    "area": {
+      "celula": "C6",
+      "modo": "rotulo",
+      "prefixo": "Area: ",
+      "descricao": "Área / departamento"
+    },
+    "empreendimento": {
+      "celula": "F6",
+      "modo": "rotulo",
+      "prefixo": "Projeto: ",
+      "descricao": "Empreendimento / projeto"
+    },
+    "numero_os": {
+      "celula": "C7",
+      "modo": "rotulo",
+      "prefixo": "Nº O S.: ",
+      "padrao_vazio": "N/D",
+      "descricao": "Número da OS (usa N/D se vazio)"
+    },
+    "local": {
+      "celula": "F7",
+      "modo": "composicao",
+      "prefixo": "Local: ",
+      "partes": [
+        { "campos": ["endereco"] },
+        { "campos": ["cidade", "estado"], "separador": "/" }
+      ],
+      "separador_partes": ", ",
+      "descricao": "Local montado com Endereço, Cidade e Estado (ex.: UHE GPS, Curitiba/PR)"
+    },
+    "adiantamento": {
+      "celula": "I10",
+      "modo": "moeda",
+      "formato": "#,##0.00",
+      "descricao": "Valor do adiantamento"
+    }
+  },
+
+  "totais_categoria": {
+    "coluna": "G",
+    "formato": "#,##0.00",
+    "categoria_padrao": "Outros",
+    "_comentario_linhas": "Número da linha na aba frente onde o total da categoria é escrito (na coluna acima). Categorias extras do usuário ficam em assets/rdv/categorias_customizadas.json (região Diversas).",
+    "linhas": {
+      "Hospedagem": 14,
+      "Estacionamento / garagem": 27,
+      "Café da manhã": 16,
+      "Frigobar": 18,
+      "Lavanderia": 19,
+      "Alimentação": 20,
+      "Táxi / aplicativo": 23,
+      "Locação de veículo": 25,
+      "Combustível": 26,
+      "Pedágio": 28,
+      "Bagagem": 32,
+      "Passagem": 31,
+      "Outros": 34
+    }
+  },
+
+  "observacoes": {
+    "aba": "verso",
+    "celula": "A2",
+    "descricao": "Texto livre de observações do projeto"
+  },
+
+  "assinatura": {
+    "aba": "frente",
+    "celula_inicio": "D60",
+    "celula_fim": "E61",
+    "altura_minima_linha_pt": 28,
+    "descricao": "Imagem da assinatura do funcionário (proporção preservada, alinhada à linha inferior)"
+  },
+
+  "data_geracao": {
+    "aba": "frente",
+    "celulas": ["C60"],
+    "formato": "DD/MM/YYYY",
+    "descricao": "Data atual preenchida ao gerar o relatório (campo Data do colaborador)"
+  },
+
+  "limpar_marcas_exemplo": {
+    "coluna": "B",
+    "linhas": [14, 25, 31],
+    "valor_marca": "x",
+    "descricao": "Remove marcas de exemplo 'x' do modelo (ex.: taxa de adm)"
+  }
+}

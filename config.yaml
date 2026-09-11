@@ -1,0 +1,59 @@
+# Configuração do Gerador de Relatórios de Despesa de Viagem
+
+# Pastas relativas a cada projetos/<slug>/ (não à raiz do repositório)
+pastas:
+  notas: notas
+  saida: output
+  excluidas: notas/excluidas
+
+moeda: BRL
+confianca_minima: 0.7
+
+categorias:
+  - Café da manhã
+  - Alimentação
+  - Frigobar
+  - Lavanderia
+  - Estacionamento / garagem
+  - Táxi / aplicativo
+  - Pedágio
+  - Bagagem
+  - Locação de veículo
+  - Combustível
+  - Hospedagem
+  - Passagem
+  - Outros
+
+extensoes_imagem:
+  - .jpg
+  - .jpeg
+  - .png
+  - .webp
+  - .heic
+  - .heif
+  - .bmp
+  - .tif
+  - .tiff
+
+extensoes_pdf:
+  - .pdf
+
+# PDF: separar páginas e detectar várias notas na mesma página
+pdf:
+  detectar_multiplas_na_pagina: true
+  escala_render: 2.0
+
+# motor padrão em config; preferência do usuário fica em data/user_settings.json e .env
+ocr:
+  motor: local
+  # Consulta razão social / nome fantasia nas APIs públicas (BrasilAPI → Minha Receita → ReceitaWS)
+  cnpj_lookup: true
+
+# Consulta CNPJ (também aceita chave raiz cnpj_lookup: true)
+cnpj_lookup: true
+
+# Visão opcional (Gemini tem faixa gratuita em https://aistudio.google.com/apikey)
+visao:
+  provedor: auto
+  modelo_openai: gpt-4o-mini
+  modelo_gemini: automatico

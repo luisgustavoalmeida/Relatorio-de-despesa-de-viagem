@@ -1,0 +1,164 @@
+{
+  "titulo": "Manual de utilização",
+  "subtitulo": "Relatório de Despesas de Viagem (RDV)",
+  "secoes": [
+    {
+      "titulo": "1. Início rápido",
+      "paragrafos": [
+        "Com a aplicação compilada, execute RelatorioDespesaViagem.exe (ou python -m app em desenvolvimento). Envie sempre a pasta inteira, nunca só o .exe.",
+        "Crie um projeto em Arquivo → Novo projeto (contratante + natureza do serviço) ou no botão Novo… da barra superior.",
+        "Na aba Dados do projeto, preencha o cabeçalho da viagem.",
+        "Use Arquivo → Abrir pasta de notas e coloque fotos e PDFs dos comprovantes.",
+        "Na aba Notas e relatório: atualize a lista, extraia os dados, confira cada nota e gere o relatório."
+      ]
+    },
+    {
+      "titulo": "2. Interface principal",
+      "lista": [
+        "Barra de menus: Arquivo, Notas, Relatório, Exibir e Ajuda (listas suspensas arredondadas).",
+        "Barra superior: combobox Projeto (contratante + natureza) para trocar de viagem.",
+        "Aba Dados do projeto: cabeçalho da viagem, observações e assinatura do funcionário.",
+        "Aba Notas e relatório: lista de comprovantes à esquerda, prévia da imagem no centro e conferência à direita.",
+        "Aba Prévia visual: resumo financeiro e composição dos gastos por categoria.",
+        "Exibir → Alternar tema claro/escuro: troca a aparência da interface (CustomTkinter).",
+        "Preferências locais em data/user_settings.json (tema, motor de OCR/IA, chaves de API).",
+        "Paleta de cores editável em assets/tema_aplicacao.json (sem recompilar).",
+        "Ao fechar a janela, o projeto em edição é salvo automaticamente."
+      ]
+    },
+    {
+      "titulo": "3. Gestão de projetos",
+      "paragrafos": [
+        "Cada projeto corresponde a uma pasta em projetos/. A chave única é contratante + natureza do serviço; o nome da pasta é derivado desses valores."
+      ],
+      "lista": [
+        "Arquivo → Novo projeto: cria a pasta (projeto.json, notas/, output/) e abre o projeto.",
+        "Arquivo → Editar chave do projeto (contratante + natureza): altera a chave, renomeia a pasta e atualiza o combobox. Impede chaves duplicadas.",
+        "Troque de projeto no combobox superior; o projeto atual é salvo antes da troca.",
+        "Arquivo → Abrir pasta do projeto: abre a pasta da viagem no Explorador.",
+        "Arquivo → Abrir pasta de notas: abre projetos/<slug>/notas/ para colocar comprovantes.",
+        "O último projeto aberto é memorizado em data/projetos_registry.json."
+      ]
+    },
+    {
+      "titulo": "4. Gravação e modelo de cabeçalho",
+      "lista": [
+        "Arquivo → Salvar agora: grava imediatamente o projeto.json.",
+        "Arquivo → Salvar modelo de cabeçalho: grava os campos atuais em assets/modelo_cabecalho.json.",
+        "Arquivo → Carregar modelo de cabeçalho: copia o modelo para o projeto aberto (com confirmação).",
+        "Arquivo → Assinatura do funcionário…: associa uma imagem de assinatura (reutilizada pelo nome do funcionário em assets/assinaturas)."
+      ]
+    },
+    {
+      "titulo": "5. Dados do projeto (cabeçalho)",
+      "paragrafos": [
+        "Os campos alimentam o Excel RDV e o PDF do relatório. A chave do projeto (contratante + natureza) também aparece na lista superior."
+      ],
+      "lista": [
+        "Natureza do serviço, Empreendimento, Contratante",
+        "Endereço, Cidade, Estado",
+        "Início contratual, Término contratual",
+        "Contratada, Nome funcionário, Telefone",
+        "Área, Nº O.S., Nº RDV, Centro de custo, Adiantamento (R$)",
+        "Observações do projeto e assinatura (imagem)"
+      ]
+    },
+    {
+      "titulo": "6. Notas e comprovantes",
+      "lista": [
+        "Notas → Atualizar lista de notas: inclui arquivos novos da pasta notas/ sem alterar as já conferidas.",
+        "Notas → Extrair notas pendentes: lê valor, data, hora, estabelecimento, CNPJ e categoria (OCR local ou IA).",
+        "Notas → Reextrair nota selecionada: volta a ler só a nota em edição.",
+        "Notas → Ver conversa com a IA…: mostra o prompt e a resposta usados na extração (quando o motor for de visão).",
+        "PDFs com várias páginas (ou várias notas na mesma página) são separados automaticamente em notas/_separados/.",
+        "Formatos aceites: JPG, PNG, WEBP, HEIC/HEIF e PDF.",
+        "Filtros da lista: todas as notas, ativas ou excluídas; agrupamento por todos, categoria ou data; período (todos os meses, sem data ou um mês específico)."
+      ]
+    },
+    {
+      "titulo": "7. Cores e estado das notas",
+      "tabela": [
+        { "rotulo": "Sem extrair", "texto": "Arquivo incluído, ainda sem leitura (cinza)." },
+        { "rotulo": "Erro", "texto": "Falha na extração (vermelho)." },
+        { "rotulo": "Sem valor", "texto": "Extraída, mas sem valor (laranja)." },
+        { "rotulo": "Sem data", "texto": "Extraída, mas sem data (amarelo). Não entra em relatório mensal ou por intervalo." },
+        { "rotulo": "Revisar", "texto": "Confiança abaixo do mínimo configurado." },
+        { "rotulo": "A verificar", "texto": "Dados extraídos; falta marcar como conferida (azul)." },
+        { "rotulo": "Verificada", "texto": "Conferida pelo utilizador (verde)." },
+        { "rotulo": "Duplicata", "texto": "Mesmo conteúdo fiscal (data + hora + valor + estabelecimento) que outra nota (roxo)." },
+        { "rotulo": "Excluída", "texto": "Removida do relatório; o ficheiro vai para notas/excluidas/." }
+      ],
+      "paragrafos": [
+        "Selecione a nota, corrija os campos à direita e use Conferir / Aplicar correções. Delete move a nota para excluídas (pode restaurar na lista de excluídas)."
+      ]
+    },
+    {
+      "titulo": "8. Prévia da imagem e recorte",
+      "lista": [
+        "A imagem do comprovante aparece no centro da aba Notas e relatório.",
+        "Zoom: ajustar à janela, 100%, roda do rato; arrastar para deslocar quando ampliada.",
+        "Recortar: desenhe a área útil, aplique o recorte e volte a extrair se precisar. É possível desfazer o último recorte."
+      ]
+    },
+    {
+      "titulo": "9. Duplicatas",
+      "paragrafos": [
+        "O sistema marca como duplicata notas com a mesma data, hora, valor e estabelecimento. Sem hora não marca (evita falso positivo no mesmo dia/local/valor).",
+        "A nota mais recente do grupo fica destacada; a outra permanece no relatório até você excluí-la. Ao gerar o relatório, o programa avisa se ainda houver duplicatas."
+      ]
+    },
+    {
+      "titulo": "10. Reconhecimento (OCR e IA)",
+      "lista": [
+        "Padrão: OCR local gratuito (RapidOCR) — funciona sem internet e sem chave de API.",
+        "Arquivo → Configurações…: escolha Google Gemini, OpenAI ou Claude e grave a chave (ficam em data/.env, fora do Git).",
+        "Chave gratuita do Gemini: https://aistudio.google.com/apikey — cole em Configurações, selecione o motor Google Gemini (IA) e salve.",
+        "A extração pode correr em paralelo conforme o motor escolhido.",
+        "Consulta de CNPJ (quando extraído) complementa o nome do estabelecimento."
+      ]
+    },
+    {
+      "titulo": "11. Menu Relatório",
+      "lista": [
+        "Gerar relatório…: escolhe Completo, Por mês (um pacote por mês) ou Entre datas.",
+        "Cada pacote em projetos/<slug>/output/ contém Excel RDV, PDF resumo e PDFs dos comprovantes (por categoria).",
+        "Notas sem data não entram em relatórios mensais ou por intervalo; o relatório completo inclui todas as ativas.",
+        "Abrir pasta de relatórios: abre output/ no Explorador.",
+        "Mostrar pasta do template RDV: localiza a planilha modelo (assets/rdv/RDV-PADRÃO.xlsx).",
+        "Editar mapeamento de células…: JSON com endereços das células do Excel (assets/rdv/mapeamento_celulas.json).",
+        "Gerenciar categorias extras…: cria categorias além das padrão, nas regiões Diversas ou Outros do RDV."
+      ]
+    },
+    {
+      "titulo": "12. Menu Exibir",
+      "lista": [
+        "Alternar tema claro/escuro: muda cores da interface; preferência gravada em data/user_settings.json."
+      ]
+    },
+    {
+      "titulo": "13. Prévia visual",
+      "lista": [
+        "Resumo financeiro da viagem (totais, adiantamento e saldo).",
+        "Composição por categoria em barras percentuais.",
+        "Ordenação por valor, data ou categoria."
+      ]
+    },
+    {
+      "titulo": "14. Pastas principais",
+      "lista": [
+        "projetos/ — uma pasta por viagem (projeto.json, notas/, notas/excluidas/, output/, meta/relatorios/).",
+        "assets/ — tema, modelo de cabeçalho, planilha RDV, mapeamento de células, assinaturas, manual.json e sobre.json.",
+        "data/ — preferências, registry de projetos, cache CNPJ e chaves de API (oculta no .exe).",
+        "config.yaml — categorias padrão, extensões e opções de OCR/PDF."
+      ]
+    },
+    {
+      "titulo": "15. Ajuda e personalização",
+      "lista": [
+        "Ajuda → Manual: este documento (editável em assets/manual.json).",
+        "Ajuda → Sobre: versão, autor, repositório, histórico e contactos (assets/sobre.json).",
+        "Alterações nos JSON de ajuda ou no tema aparecem ao reabrir a aplicação ou o diálogo correspondente, sem recompilar o .exe (desde que a pasta assets/ esteja junto ao executável)."
+      ]
+    }
+  ]
+}

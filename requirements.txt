@@ -1,0 +1,16 @@
+customtkinter>=5.2.2,<6
+Pillow>=10.4.0
+pillow-heif>=0.18.0
+rapidocr-onnxruntime==1.2.3
+numpy>=1.26.0
+pytesseract>=0.3.13
+openpyxl>=3.1.5
+reportlab>=4.2.5
+img2pdf>=0.5.1
+PyYAML>=6.0.2
+python-dotenv>=1.0.1
+pypdfium2>=4.30.0
+# Opcionais (só se quiser IA de visão; Gemini tem faixa gratuita):
+# openai>=1.55.0
+google-genai>=1.0.0
+# anthropic>=0.40.0

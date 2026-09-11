@@ -1,0 +1,37 @@
+Gerador de Relatórios de Despesa de Viagem
+==========================================
+
+Como usar
+---------
+1. Extraia esta pasta inteira para um local permanente
+   (por exemplo Documentos\RelatorioDespesaViagem).
+2. Abra RelatorioDespesaViagem.exe.
+3. Crie um projeto no aplicativo e use "Abrir pasta de notas"
+   para colocar fotos e PDFs dos comprovantes.
+
+O que você precisa ver
+----------------------
+- RelatorioDespesaViagem.exe  → inicia o aplicativo
+- projetos\                   → suas viagens, notas e relatórios gerados
+- Este LEIA-ME.txt
+
+Não apague
+----------
+A pasta _internal (pode estar oculta) contém o motor do programa.
+Sem ela o executável não abre. Copie sempre a pasta completa,
+nunca só o arquivo .exe.
+
+Configurações
+-------------
+Preferências, chaves de API (Gemini etc.) e cache ficam em data\
+(pasta oculta). Use o menu Configurações dentro do aplicativo.
+
+Distribuir para outra pessoa
+----------------------------
+Envie o ZIP ou a pasta inteira. Cada usuário terá seus próprios
+projetos na pasta projetos\ ao lado do .exe.
+
+Reconhecimento de notas
+-----------------------
+O OCR local funciona sem internet. Para usar Google Gemini,
+abra Configurações e cole a chave de https://aistudio.google.com/apikey

@@ -1,0 +1,81 @@
+{
+  "titulo": "Sobre o programa",
+  "subtitulo": "Relatório de Despesas de Viagem (RDV)",
+  "aplicacao": {
+    "nome": "Relatório de Despesas de Viagem",
+    "nome_completo": "Gerador de Relatórios de Despesa de Viagem (RDV)",
+    "versao": "1.0.0",
+    "data_versao": "2026-09-11",
+    "versao_formato_dados": 1,
+    "descricao": "Aplicação desktop para organizar comprovantes de viagem por projeto, extrair valor, data, estabelecimento e categoria (OCR local ou IA) e gerar o pacote de reembolso em Excel RDV, PDF e comprovantes. A interface segue o padrão do Relatório de atividades diárias, com seletor de projeto, abas e tema claro/escuro.",
+    "data_lancamento": "2026-09-01",
+    "ultima_atualizacao": "2026-09-11",
+    "plataforma": "Windows 10 ou superior",
+    "python_minimo": "3.12 ou superior"
+  },
+  "criador": {
+    "nome": "Luís Gustavo de Almeida",
+    "papel": "Engenheiro Eletricista, Engenheiro de Software",
+    "organizacao": "Megawatt Sistemas",
+    "email_profissional": "luis.gustavo@megawatt.net.br",
+    "email_pessoal": "lga.gustavo.a@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/luís-gustavo-de-almeida",
+    "discord": "luisgustavoalmeida"
+  },
+  "repositorio": {
+    "nome": "Relatorio de despesa de viagem",
+    "documentacao": "README.md na raiz do projeto"
+  },
+  "doacao": {
+    "mensagem": "Este programa é gratuito. Se quiser apoiar o desenvolvimento, pode enviar uma doação voluntária via PIX.",
+    "chave_pix": "CPF 069.524.336-51"
+  },
+  "funcionalidades": [
+    "Gestão de projetos: novo, editar chave (contratante + natureza) e troca no combobox superior",
+    "Cabeçalho reutilizável (modelo em assets/modelo_cabecalho.json) e assinatura do funcionário",
+    "Inclusão automática de imagens e PDFs da pasta notas/; PDFs com várias notas são separados",
+    "Extração de valor, data, hora, estabelecimento, CNPJ e categoria (RapidOCR local ou Gemini/OpenAI/Claude)",
+    "Conferência com prévia da imagem, zoom, recorte e correção dos campos",
+    "Deteção de duplicatas pelo conteúdo fiscal (data + hora + valor + estabelecimento)",
+    "Cores de estado na lista (sem extrair, erro, sem valor/data, revisar, a verificar, verificada, duplicata, excluída)",
+    "Categorias padrão e categorias extras nas regiões Diversas/Outros do modelo RDV",
+    "Exportação do pacote: Excel RDV, PDF resumo e PDFs dos comprovantes por categoria (completo, por mês ou intervalo)",
+    "Prévia visual com totais e composição por categoria",
+    "Tema claro/escuro (Exibir) e paleta em assets/tema_aplicacao.json",
+    "Menus Arquivo, Notas, Relatório, Exibir e Ajuda"
+  ],
+  "historico_versoes": [
+    {
+      "versao": "1.0.0",
+      "data": "2026-09-11",
+      "notas": "Versão inicial: projetos por viagem, extração OCR/IA, conferência, duplicatas, Excel RDV + PDF, tema claro/escuro e menu Ajuda (Manual e Sobre)."
+    }
+  ],
+  "requisitos": [
+    "Windows 10 ou superior",
+    "Python 3.12+ (ambiente virtual .venv ou pasta compilada com PyInstaller)",
+    "Conexão à internet apenas para motores de IA (Gemini, OpenAI ou Claude)",
+    "Microsoft Excel ou compatível para abrir o relatório gerado (.xlsx)"
+  ],
+  "tecnologias": [
+    { "nome": "Python 3.12+ / CustomTkinter", "uso": "Interface gráfica principal (tema claro/escuro)" },
+    { "nome": "RapidOCR / ONNX Runtime", "uso": "OCR local gratuito, sem chave de API" },
+    { "nome": "Google Gemini / OpenAI / Claude", "uso": "Extração por visão (opcional, com chave)" },
+    { "nome": "openpyxl", "uso": "Exportação da planilha RDV (.xlsx)" },
+    { "nome": "ReportLab / img2pdf / pypdfium2", "uso": "PDF do relatório, comprovantes e leitura de PDFs" },
+    { "nome": "Pillow / pillow-heif", "uso": "Imagens, recorte e HEIC" },
+    { "nome": "PyInstaller", "uso": "Compilação da pasta RelatorioDespesaViagem" }
+  ],
+  "pastas_principais": [
+    "projetos/ — uma pasta por viagem (projeto.json, notas, output e metadados)",
+    "assets/ — tema, modelo de cabeçalho, RDV-PADRÃO.xlsx, mapeamento de células, assinaturas, manual.json e sobre.json",
+    "data/ — preferências, registry de projetos, cache CNPJ e chaves de API"
+  ],
+  "suporte": [
+    "Manual de utilização: menu Ajuda → Manual (assets/manual.json)",
+    "Informações desta janela: menu Ajuda → Sobre (assets/sobre.json)",
+    "Problemas de instalação: consulte README.md e o LEIA-ME.txt da pasta compilada",
+    "Reconhecimento de notas: menu Arquivo → Configurações…",
+    "Contacto do desenvolvedor: ver secção Criador acima"
+  ]
+}

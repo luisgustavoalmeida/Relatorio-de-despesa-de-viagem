@@ -1,0 +1,63 @@
+# --- Ambiente virtual e Python ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Segredos e chaves de API (NUNCA versionar) ---
+.env
+.env.*
+!.env.example
+data/.env
+/Chage*.txt
+/Chave*.txt
+/*API*key*.txt
+/*api*key*.txt
+
+# --- Dados locais do usuário ---
+projetos/
+data/*
+!data/.gitkeep
+
+# --- Notas / saídas locais (legado na raiz) ---
+output/
+notas/*
+!notas/.gitkeep
+notas/_separados/
+notas/excluidas/
+notas/_pre_recorte/
+
+# --- Assinaturas pessoais (mantém só a pasta) ---
+assets/assinaturas/*
+!assets/assinaturas/.gitkeep
+
+# --- Build / distribuição ---
+dist/
+build/
+*.spec.bak
+*.zip
+
+# --- Logs e temporários ---
+*.log
+*.tmp
+*.temp
+~$*
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- IDE / editor ---
+.idea/
+.vscode/
+*.swp
+*.swo

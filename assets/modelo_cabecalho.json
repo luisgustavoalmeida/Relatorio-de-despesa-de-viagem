@@ -1,0 +1,23 @@
+{
+  "natureza_servico": "Comissionamento TR",
+  "empreendimento": "UHE GPS - COPEL",
+  "contratante": "Andritiz",
+  "endereco": "UHE GPS",
+  "cidade": "Curitiba",
+  "estado": "PR",
+  "inicio_contratual": "2026-05-01",
+  "termino_contratual": "2026-06-01",
+  "contratada": "Megawatt Sistemas",
+  "nome_funcionario": "Luis gustavo de Almeida",
+  "telefone": "+55 32 98507-2121",
+  "area": "Engenharia",
+  "numero_os": "",
+  "numero_rdv": "654321",
+  "centro_custo": "",
+  "adiantamento": "",
+  "observacoes": "",
+  "assinatura_arquivo": "assets/assinaturas/Luis_gustavo_de_Almeida.jpg",
+  "meta": {
+    "ultima_edicao_iso": "2026-09-10T19:53:10.249571"
+  }
+}

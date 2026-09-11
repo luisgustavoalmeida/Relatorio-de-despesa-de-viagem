@@ -1,0 +1,25 @@
+{
+  "_comentario": "Categorias criadas pelo usuário. Cada uma usa uma linha da região Diversas no Excel (rótulo na coluna D, valor na coluna G).",
+  "coluna_rotulo": "D",
+  "coluna_valor": "G",
+  "linhas_disponiveis": [
+    37,
+    38,
+    39,
+    40,
+    35,
+    36
+  ],
+  "categorias": [
+    {
+      "nome": "Telefone",
+      "linha_excel": 37,
+      "celula_rotulo": "D37"
+    },
+    {
+      "nome": "Material escritorio",
+      "linha_excel": 38,
+      "celula_rotulo": "D38"
+    }
+  ]
+}
